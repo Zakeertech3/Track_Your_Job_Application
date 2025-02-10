@@ -1,0 +1,39 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    padding-top: 70px; /* Extra padding for the navbar */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar Styling */
+.bg-gradient-primary {
+    background: linear-gradient(45deg, #1d2671, #c33764);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.navbar-logo {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.navbar-title {
+    font-size: 1.8rem;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.3rem;
+    margin-right: 15px;
+}
+
+/* Table Styles */
+.table {
+    font-size: 1rem;
+}
+.table-responsive {
+    overflow-x: auto;
+}

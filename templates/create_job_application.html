@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">New Job Application</h2>
+<form method="post" action="{{ url_for('create_job_application') }}" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="date" class="form-label">Date (YYYY-MM-DD)</label>
+    <input type="text" class="form-control" id="date" name="date" placeholder="2023-07-15">
+  </div>
+  <div class="mb-3">
+    <label for="company" class="form-label">Company Applied</label>
+    <input type="text" class="form-control" id="company" name="company" required>
+  </div>
+  <div class="mb-3">
+    <label for="role" class="form-label">Role</label>
+    <input type="text" class="form-control" id="role" name="role" required>
+  </div>
+  <div class="mb-3">
+    <label for="location" class="form-label">Location</label>
+    <input type="text" class="form-control" id="location" name="location" required>
+  </div>
+  <div class="mb-3">
+    <label for="job_description" class="form-label">Job Description</label>
+    <textarea class="form-control" id="job_description" name="job_description" rows="3" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="resume" class="form-label">Upload Resume (PDF, DOC, DOCX)</label>
+    <input type="file" class="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx">
+  </div>
+  <div class="mb-3">
+    <label for="jd_screenshot" class="form-label">Upload Screenshot of JD (Images: JPG, PNG, GIF)</label>
+    <input type="file" class="form-control" id="jd_screenshot" name="jd_screenshot" accept=".jpg,.jpeg,.png,.gif">
+  </div>
+  <button type="submit" class="btn btn-primary">
+    <i class="fas fa-save"></i> Submit
+  </button>
+</form>
+{% endblock %}

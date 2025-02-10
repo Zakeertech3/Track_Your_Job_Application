@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">Jobs Applied</h2>
+<a href="{{ url_for('create_job_application') }}" class="btn btn-success mb-3">
+  <i class="fas fa-plus"></i> Add New Job Application
+</a>
+<div class="table-responsive">
+  <table id="jobAppsTable" class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Company</th>
+        <th>Role</th>
+        <th>Location</th>
+        <th>Job Description</th>
+        <th>Resume</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for app in job_apps %}
+      <tr>
+        <td>{{ app.id }}</td>
+        <td>{{ app.date.strftime('%Y-%m-%d') }}</td>
+        <td>{{ app.company }}</td>
+        <td>{{ app.role }}</td>
+        <td>{{ app.location }}</td>
+        <td>{{ app.job_description }}</td>
+        <td>
+          {% if app.resume_filename %}
+            <a href="{{ url_for('static', filename='uploads/' ~ app.resume_filename) }}" target="_blank">View PDF</a>
+          {% else %}
+            N/A
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- (You can include DataTables code as in index.html if desired) -->
+{% endblock %}

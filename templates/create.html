@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">Create Record</h2>
+
+<!-- Dropdown for selecting record type -->
+<div class="mb-4">
+  <label for="recordType" class="form-label">Select Record Type:</label>
+  <select class="form-select" id="recordType">
+    <option value="general" selected>General Record</option>
+    <option value="job">Job Application</option>
+    <option value="cold">Cold Email</option>
+  </select>
+</div>
+
+<!-- General Record Form -->
+<form method="post" action="{{ url_for('create') }}">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email Address</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+  </div>
+  <button type="submit" class="btn btn-primary">
+    <i class="fas fa-save"></i> Create
+  </button>
+</form>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // When the dropdown selection changes, redirect if needed.
+  document.getElementById("recordType").addEventListener("change", function() {
+    var selected = this.value;
+    if (selected === "job") {
+      window.location.href = "{{ url_for('create_job_application') }}";
+    } else if (selected === "cold") {
+      window.location.href = "{{ url_for('create_cold_email') }}";
+    }
+    // If "general" is selected, do nothing (stay on the current page).
+  });
+</script>
+{% endblock %}
