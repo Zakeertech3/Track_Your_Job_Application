@@ -282,3 +282,7 @@ wrapt==1.15.0
 xgboost==1.7.6
 yarl==1.9.4
 zipp==3.16.0
+Flask
+Flask-SQLAlchemy
+Werkzeug
+gunicorn
